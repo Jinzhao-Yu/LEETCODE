@@ -12,12 +12,8 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        def binary_s(ns,target):
-            l,r = 0,len(ns)-1
-            while l < r:
-                mid = l + (r-l)//2
-                if nums[mid] == target:
-                    return mid
-                elif nums[]
+        def findRight(nums, target):
+            l,r = 
+
 # @lc code=end
 
