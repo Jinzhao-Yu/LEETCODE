@@ -3,7 +3,7 @@
 - 边界Case需要注意
 - 区间选择：左开右闭、左闭右开、左闭右闭、左开右开，注意保持一致
 - ```mid = left + (right-left)//2```
-- 二分查找的时间复杂度为$O(logN)$
+- 二分查找的时间复杂度为 $O(logN)$
 ### LC704.二分查找
 ```python
 class Solution(object):
