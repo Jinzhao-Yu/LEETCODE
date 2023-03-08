@@ -80,4 +80,31 @@ class Solution(object):
                 nodeB = nodeB.next
         return None
 ```
-### LC142.
+### LC142.环形链表II
+- 分别考察判断是否存在环和**找出环的开始点**
+- 判断是否存在环：快慢指针直到相遇，证明存在环
+- **找出环的开始点：**
+    - 使用数学推导，证明在快慢指针相遇的节点和头节点同时出发指针，每次移动一步，最终会在环的开始点相遇
+    - 推导过程：![image](../Algo_Training_Camp/Fig/BlogDay04-Fig1.png)
+    - 动图：![image2](https://code-thinking.cdn.bcebos.com/gifs/142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II%EF%BC%88%E6%B1%82%E5%85%A5%E5%8F%A3%EF%BC%89.gif)
+```python
+class Solution(object):
+    def detectCycle(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # 先判断是否存在环：快慢指针
+        fast, slow = head, head
+        while fast is not None and fast.next is not None:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow: # 证明存在环
+                # 根据数学推导，在head和相遇点分别放置两个指针并同时移动，相遇点为环开始节点
+                idx1,idx2 = head,slow
+                while idx1 != idx2:
+                    idx1 = idx1.next
+                    idx2 = idx2.next
+                return idx1
+        return None
+```
