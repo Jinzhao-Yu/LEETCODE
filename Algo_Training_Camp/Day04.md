@@ -40,4 +40,44 @@ class Solution(object):
         prev.next = node_s.next
         return dummyNode.next
 ```
-### LC
+### LC160.相交链表
+- 如果存在链表相交，相交点所在位置之后的链表完全相同，可以直接比较Node而不是节点值！！
+- 链表长度不同，但相交点之后完全相同，因此只需要比较较短长度链表开始处的情况，较长链表前面多出来的部分没有影响
+- 两个指针初始化在同一个长度的位置，同步向后移动，不断比较Node直到找到相同的节点
+```python
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        # length of headA and headB
+        lengthA, lengthB = 0, 0
+        cur = headA
+        while cur is not None:
+            lengthA += 1
+            cur = cur.next
+        cur = headB
+        while cur is not None:
+            lengthB += 1
+            cur = cur.next
+        # 将两个指针移动到两个链表的相同位置，保证后续剩下的节点数量相同
+        nodeA, nodeB = headA, headB
+        if lengthA > lengthB:
+            while lengthA > lengthB:
+                nodeA = nodeA.next
+                lengthA -= 1
+        else:
+            while lengthB > lengthA:
+                nodeB = nodeB.next
+                lengthB -= 1
+        # 比较两个指针对应节点是否相等
+        while nodeA is not None and nodeB is not None:
+            if nodeA == nodeB:
+                return nodeA
+            else:
+                nodeA = nodeA.next
+                nodeB = nodeB.next
+        return None
+```
+### LC142.
