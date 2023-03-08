@@ -86,7 +86,7 @@ class Solution(object):
 - **找出环的开始点：**
     - 使用数学推导，证明在快慢指针相遇的节点和头节点同时出发指针，每次移动一步，最终会在环的开始点相遇
     - 推导过程：![image](../Algo_Training_Camp/Fig/BlogDay04-Fig1.png)
-    - 动图：![image2](https://code-thinking.cdn.bcebos.com/gifs/142.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8II%EF%BC%88%E6%B1%82%E5%85%A5%E5%8F%A3%EF%BC%89.gif)
+    - 动图：![image2](../Algo_Training_Camp/Fig/BlogDay04-Fig2.gif)
 ```python
 class Solution(object):
     def detectCycle(self, head):
