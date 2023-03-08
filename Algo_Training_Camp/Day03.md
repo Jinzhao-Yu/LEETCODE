@@ -138,4 +138,45 @@ class MyLinkedList(object):
             prev.next = prev.next.next
             self.size -= 1
 ```
-### LC
+### LC206.反转链表
+- 迭代法和递归法两种方式
+- 迭代法：使用双指针，分别指向当前节点cur和上一个节点prev，每次进行的操作时将cur的next变为prev，并使用temp将原来的next存下来用作下一步的cur，直到最后一个节点
+- 需要注意的是，初始化prev时不要设置为一个新的ListNode，否则在输出时会在结尾额外输出一个None
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # 迭代法/双指针
+        cur = head
+        prev = None # 避免输出尾部的None，不要把这里初始化为ListNode
+        while cur is not None:
+            temp = cur.next
+            cur.next = prev
+            prev, cur = cur, temp
+        return prev
+```
+- 递归法：重复调用函数本身形成递归
+- 从后向前递归：将一个节点的next部分先使用函数完成反转，再将这个节点连接在反转后结果的最后，注意边界情况
+```python
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        # 递归法
+        if head is None or head.next is None: # 边界case
+            return head
+        temp = self.reverseList(head.next) # 将当前节点的后面部分全部反转
+        head.next.next = head # next指向的节点的next，就是将head接在结果的最后
+        head.next = None # 断开原有的链接
+        return temp
+```
