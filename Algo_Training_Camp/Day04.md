@@ -1,6 +1,6 @@
 # Day04｜链表Linked List
 ## 总结
-![](https://code-thinking-1253855093.file.myqcloud.com/pics/%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93.png)
+![image3](https://code-thinking-1253855093.file.myqcloud.com/pics/%E9%93%BE%E8%A1%A8%E6%80%BB%E7%BB%93.png)
 ### LC24.两两交换链表中的节点
 - 递归法，运用跟Day03反转链表相似的方法
 ```python
@@ -87,8 +87,10 @@ class Solution(object):
 - 判断是否存在环：快慢指针直到相遇，证明存在环
 - **找出环的开始点：**
     - 使用数学推导，证明在快慢指针相遇的节点和头节点同时出发指针，每次移动一步，最终会在环的开始点相遇
-    - 推导过程：![image](../Algo_Training_Camp/Fig/BlogDay04-Fig1.png)
-    - 动图:![image2](../Algo_Training_Camp/Fig/BlogDay04-Fig2.gif)
+    - 推导过程：\
+    ![image](../Algo_Training_Camp/Fig/BlogDay04-Fig1.png)
+    - 动图：\
+    ![image2](../Algo_Training_Camp/Fig/BlogDay04-Fig2.gif)
 ```python
 class Solution(object):
     def detectCycle(self, head):
